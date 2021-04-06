@@ -2,14 +2,14 @@
 #include <stdlib.h>
 
 struct TreeNode;
-typedef TreeNode* BinTree;
+typedef TreeNode *BinTree;
 typedef BinTree Position;
 Position Find(int X, BinTree BST);
 Position IterationFind(int X, BinTree BST);
 Position FindMax(BinTree BST);
 Position FindMin(BinTree BST);
 Position Insert(int X, BinTree BST);
-Position Delete(int X, BinTree); 
+Position Delete(int X, BinTree);
 
 struct TreeNode
 {
@@ -20,7 +20,6 @@ struct TreeNode
 
 int main()
 {
-	
 }
 
 //Recursion
@@ -29,9 +28,9 @@ Position Find(int X, BinTree BST)
 	if (!BST)
 		return NULL;
 	else if (X < BST->Data)
-		return Find(BST->Left);
+		return Find(X, BST->Left);
 	else if (X > BST->Data)
-		return Find(BST->Right);
+		return Find(X, BST->Right);
 	else
 		return BST;
 }
@@ -86,11 +85,10 @@ BinTree Insert(int X, BinTree BST)
 		BST->Data = X;
 		BST->Left = BST->Right = NULL;
 	}
-	else 
-		if (X < BST->Data)
-			BST->Left = Insert(X, BST->Left);
-		else if (BST->Data > X)
-			BST->Right = Insert(X, BST->Right);
+	else if (X < BST->Data)
+		BST->Left = Insert(X, BST->Left);
+	else if (BST->Data > X)
+		BST->Right = Insert(X, BST->Right);
 	return BST;
 }
 

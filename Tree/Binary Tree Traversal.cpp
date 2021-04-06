@@ -1,6 +1,6 @@
 #include <stdio.h>
 struct TreeNode;
-typedef TreeNode* BinTree;
+typedef TreeNode *BinTree;
 struct TreeNode
 {
 	int Data;
@@ -13,10 +13,7 @@ void Postorder(BinTree BT);
 
 int main()
 {
-	int i;
-	for ()
-	scanf()
- 
+	return 0;
 }
 
 void Preorder(BinTree BT)
@@ -46,4 +43,4 @@ void Postorder(BinTree BT)
 		Preorder(BT->Right);
 		printf("%d", BT->Data);
 	}
-} 
+}
