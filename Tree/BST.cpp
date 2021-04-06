@@ -81,7 +81,7 @@ BinTree Insert(int X, BinTree BST)
 {
 	if (!BST)
 	{
-		BST = (BST)malloc(sizeof(struct TreeNode));
+		BST = (BinTree)malloc(sizeof(struct TreeNode));
 		BST->Data = X;
 		BST->Left = BST->Right = NULL;
 	}
