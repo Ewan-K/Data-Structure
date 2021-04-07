@@ -10,6 +10,9 @@ Position FindMax(BinTree BST);
 Position FindMin(BinTree BST);
 Position Insert(int X, BinTree BST);
 Position Delete(int X, BinTree);
+void Preorder(BinTree BT);
+void Inorder(BinTree BT);
+void Postorder(BinTree BT);
 
 struct TreeNode
 {
@@ -20,6 +23,16 @@ struct TreeNode
 
 int main()
 {
+	BinTree BST = NULL;
+	BST = Insert(0, BST);
+	BST = Insert(1, BST);
+	// BST = Insert(2, BST);
+	// BST = Insert(3, BST);
+	// BST = Insert(4, BST);
+	// BST = Insert(5, BST);
+	Preorder(BST);
+	getchar();
+	return 0;
 }
 
 //Recursion
@@ -118,4 +131,33 @@ Position Delete(int X, BinTree BST)
 		}
 	}
 	return BST;
+}
+
+void Preorder(BinTree BT)
+{
+	if (BT)
+	{
+		printf("%d", BT->Data);
+		Preorder(BT->Left);
+		Preorder(BT->Right);
+	}
+}
+void Inorder(BinTree BT)
+{
+	if (BT)
+	{
+		Preorder(BT->Left);
+		printf("%d", BT->Data);
+		Preorder(BT->Right);
+	}
+}
+
+void Postorder(BinTree BT)
+{
+	if (BT)
+	{
+		Preorder(BT->Left);
+		Preorder(BT->Right);
+		printf("%d", BT->Data);
+	}
 }
