@@ -25,7 +25,7 @@ int main()
 {
 	BinTree BST = NULL;
 	BST = Insert(0, BST);
-	BST = Insert(1, BST);
+	BST = Insert(1, BST); // 目前仍不能显示正确结果
 	// BST = Insert(2, BST);
 	// BST = Insert(3, BST);
 	// BST = Insert(4, BST);
