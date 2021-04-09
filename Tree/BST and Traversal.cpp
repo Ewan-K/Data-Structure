@@ -61,6 +61,7 @@ Position IterationFind(int X, BinTree BST)
 	}
 	return NULL;
 }
+
 //Recursion
 Position FindMax(BinTree BST)
 {
@@ -71,6 +72,7 @@ Position FindMax(BinTree BST)
 	else
 		return FindMax(BST->Right);
 }
+
 //Iteration
 Position FindMin(BinTree BST)
 {
