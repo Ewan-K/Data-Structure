@@ -11,7 +11,7 @@ struct LNode
 int Length(List PtrL);
 List FindKth(List PtrL, int K);
 List Find(List PtrL, int X);
-List Insert(int X, List PtrL, int K); //由于没有加入头结点，所以如果删除了第一个节点需要返回一个新的头指针
+List Insert(int X, List PtrL, int K); // 由于没有加入头结点，所以如果删除了第一个节点需要返回一个新的头指针
 List Delete(List PtrL, int K);
 
 int main()
@@ -40,7 +40,7 @@ int main()
 
 int Length(List PtrL)
 {
-    List n = PtrL; //PtrL指向表的第一个节点
+    List n = PtrL; // PtrL指向表的第一个节点
     int i = 0;
     while (n)
     {
@@ -53,7 +53,7 @@ List FindKth(List PtrL, int K)
 {
     if (K < 1 || K > Length(PtrL))
     {
-        printf("链表中没有第K个元素！");
+        printf("Position K is illegal!\n");
         return NULL;
     }
     List n = PtrL;
@@ -82,7 +82,7 @@ List Find(List PtrL, int X)
         n = n->Next;
     return n;
 }
-List Insert(int X, List PtrL, int K) //在第K-1个节点之后插入
+List Insert(int X, List PtrL, int K) // 在第K-1个节点之后插入
 {
     List p, n;
     if (K == 1)
@@ -95,7 +95,7 @@ List Insert(int X, List PtrL, int K) //在第K-1个节点之后插入
     p = FindKth(PtrL, K - 1);
     if (!p)
     {
-        printf("不存在第K个节点！");
+        printf("Position K is illegal!\n");
         return NULL;
     }
     else
@@ -118,17 +118,17 @@ List Delete(List PtrL, int K)
             PtrL = PtrL->Next;
             free(n);
         }
-        return PtrL; //else意味着PtrL为空，也可以返回PtrL
+        return PtrL; // else意味着PtrL为空，也可以返回PtrL
     }
     p = FindKth(PtrL, K - 1);
     if (!p)
     {
-        printf("不存在第K-1个节点！\n");
+        printf("Positionn K-1 is illegal!\n");
         return NULL;
     }
     else if (p->Next == NULL)
     {
-        printf("不存在第K个节点！\n");
+        printf("Position K is illegal!\n");
         return NULL;
     }
     else

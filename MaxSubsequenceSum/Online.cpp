@@ -3,8 +3,10 @@
 int main()
 {
 	int N, i;
+	printf("How many numbers?\n");
 	scanf("%d", &N);
 	int A[N];
+	printf("Please input the numbers: \n");
 	for (i = 0; i < N; i++)
 		scanf("%d", &A[i]);
 

@@ -10,14 +10,14 @@ int main()
 	int i;
 	int MaxSum;
 	int sw;
-
+	printf("How many numbers?\n");
 	scanf("%d", &N);
 	int A[N];
+	printf("Please input the numbers: \n");
 	for (i = 0; i < N; i++)
 		scanf("%d", &A[i]);
-	printf("Please choose an algorithms: 1 original, 2 better");
+	printf("Please choose an algorithm: 1 original, 2 better");
 	scanf("%d", &sw);
-
 	switch (sw)
 	{
 	case 1:

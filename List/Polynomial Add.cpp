@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//多项式加法可以采用结构数组（存储系数和指数）也可以采用指针，显然指针更便于维护顺序
+// 多项式加法可以采用结构数组（存储系数和指数）也可以采用指针，显然指针更便于维护顺序
 
 typedef struct PNode *Poly;
 struct PNode
@@ -11,11 +11,11 @@ struct PNode
     Poly next;
 };
 Poly P1 = (Poly)malloc(sizeof(PNode)), P2 = (Poly)malloc(sizeof(PNode));
-Poly P1F = P1; //由于采用Attach函数插入新节点，所以链表有头结点
+Poly P1F = P1; // 由于采用Attach函数插入新节点，所以链表有头结点
 Poly P2F = P2;
 
 Poly PolyAdd(Poly P1, Poly P2);
-void Attach(int coe, int expo, Poly *pRear); //传rear的地址以避免传rear时无法返回有效结果
+void Attach(int coe, int expo, Poly *pRear); // 传rear的地址以避免传rear时无法返回有效结果
 int Compare(int e1, int e2);
 
 int main()

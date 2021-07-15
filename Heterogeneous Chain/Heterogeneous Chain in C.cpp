@@ -16,15 +16,15 @@ struct Node
     List Next;
 };
 
-List createEmpty();                                     //建立空链表
-void Output(List PtrL);                                 //遍历链表输出
-List FindKth(List PtrL, int K);                         //查找并指向第K个元素
-List Insert(List PtrL, int K, enum TYPE type, void *x); //在第K个位置插入类型为type的元素
-List DeleteKth(List PtrL, int K);                       //删除第K个位置的元素
-List Reverse(List PtrL);                                //逆置链表
-List Merge(List PtrL1, List PtrL2);                     //合并链表
-List sortByType(List PtrL);                             //按值的类型排序（先INT，再DOUBLE，后CHAR）
-void Destroy(List PtrL);                                //销毁链表
+List createEmpty();                                     // 建立空链表
+void Output(List PtrL);                                 // 遍历链表输出
+List FindKth(List PtrL, int K);                         // 查找并指向第K个元素
+List Insert(List PtrL, int K, enum TYPE type, void *x); // 在第K个位置插入类型为type的元素
+List DeleteKth(List PtrL, int K);                       // 删除第K个位置的元素
+List Reverse(List PtrL);                                // 逆置链表
+List Merge(List PtrL1, List PtrL2);                     // 合并链表
+List sortByType(List PtrL);                             // 按值的类型排序（先INT，再DOUBLE，后CHAR）
+void Destroy(List PtrL);                                // 销毁链表
 
 int main()
 {
@@ -32,17 +32,17 @@ int main()
     int int1 = 1, int2 = 2;
     double double1 = 2020.11, double2 = 2020.22;
     char ch1 = 'a', ch2 = 'b';
-    //建表
+    // 建表
     PtrL1 = createEmpty();
     PtrL2 = createEmpty();
-    //插入
+    // 插入
     PtrL1 = Insert(PtrL1, 1, INT, &int1);
     PtrL1 = Insert(PtrL1, 2, INT, &int2);
     PtrL1 = Insert(PtrL1, 1, DOUBLE, &double1);
     PtrL2 = Insert(PtrL2, 1, CHAR, &ch1);
     PtrL2 = Insert(PtrL2, 2, CHAR, &ch2);
     PtrL2 = Insert(PtrL2, 3, DOUBLE, &double2);
-    //输出
+    // 输出
     printf("插入后的结果：\n");
     printf("PtrL1中元素：\n");
     Output(PtrL1);
@@ -63,10 +63,10 @@ int main()
 
     // printf("\n");
 
-    //逆置
+    // 逆置
     PtrL1 = Reverse(PtrL1);
     PtrL2 = Reverse(PtrL2);
-    //输出
+    // 输出
     printf("逆置后的结果：\n");
     printf("PtrL1中元素：\n");
     Output(PtrL1);
@@ -75,28 +75,28 @@ int main()
 
     printf("\n");
 
-    //合并
+    // 合并
     PtrL1 = Merge(PtrL2, PtrL1);
-    //输出
+    // 输出
     printf("合并后的结果：\n");
     printf("PtrL1中元素：\n");
     Output(PtrL1);
 
     printf("\n");
 
-    //排序
+    // 排序
     PtrL1 = sortByType(PtrL1);
-    //输出
+    // 输出
     printf("排序后的结果：\n");
     printf("PtrL1中元素：\n");
     Output(PtrL1);
 
     printf("\n");
 
-    //销毁
+    // 销毁
     Destroy(PtrL1);
     PtrL1 = NULL;
-    //输出
+    // 输出
     printf("销毁后的结果：\n");
     printf("PtrL1中元素：\n");
     Output(PtrL1);

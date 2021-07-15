@@ -3,7 +3,7 @@
 using namespace std;
 
 typedef class Node *List;
-//Base
+// Base
 class Node
 {
 public:
@@ -12,18 +12,18 @@ public:
 public:
     Node(){};
     virtual ~Node(){};
-    virtual void printData() const;     //仅在派生类中定义
-    virtual int tellType() const;       //判断数据类型
-    virtual void Output();              //遍历链表输出
-    virtual List FindKth(int K);        //查找并指向第K个元素
-    virtual List Insert(int K, List X); //在第K个位置插入元素X（已初始化的对象）
-    virtual List DeleteKth(int K);      //删除第K个位置的元素
-    virtual List Reverse();             //逆置链表
-    virtual List Merge(List L1);        //合并链表，将this追加到L1后
-    virtual List sortByType();          //按值的类型排序（先INT，再DOUBLE，后CHAR）
-    virtual List Destroy();             //销毁链表
+    virtual void printData() const;     // 仅在派生类中定义
+    virtual int tellType() const;       // 判断数据类型
+    virtual void Output();              // 遍历链表输出
+    virtual List FindKth(int K);        // 查找并指向第K个元素
+    virtual List Insert(int K, List X); // 在第K个位置插入元素X（已初始化的对象）
+    virtual List DeleteKth(int K);      // 删除第K个位置的元素
+    virtual List Reverse();             // 逆置链表
+    virtual List Merge(List L1);        // 合并链表，将this追加到L1后
+    virtual List sortByType();          // 按值的类型排序（先INT，再DOUBLE，后CHAR）
+    virtual List Destroy();             // 销毁链表
 };
-//Derived
+// Derived
 template <class T>
 class NodeS : public Node
 {
@@ -49,23 +49,23 @@ public:
         else
             return 3;
     };
-    void Output();              //遍历链表输出
-    List FindKth(int K);        //查找并指向第K个元素
-    List Insert(int K, List X); //在第K个位置插入元素X（已初始化的对象）
-    List DeleteKth(int K);      //删除第K个位置的元素
-    List Reverse();             //逆置链表
-    List Merge(List L1);        //合并链表，将this追加到L1后
-    List sortByType();          //按值的类型排序（先INT，再DOUBLE，后CHAR）
-    List Destroy();             //销毁链表
+    void Output();              // 遍历链表输出
+    List FindKth(int K);        // 查找并指向第K个元素
+    List Insert(int K, List X); // 在第K个位置插入元素X（已初始化的对象）
+    List DeleteKth(int K);      // 删除第K个位置的元素
+    List Reverse();             // 逆置链表
+    List Merge(List L1);        // 合并链表，将this追加到L1后
+    List sortByType();          // 按值的类型排序（先INT，再DOUBLE，后CHAR）
+    List Destroy();             // 销毁链表
 };
 
 int main()
 {
-    //建立链表
-    NodeS<int> L1(-1, nullptr); //必须用一个对象节点做头结点
+    // 建立链表
+    NodeS<int> L1(-1, nullptr); // 必须用一个对象节点做头结点
     NodeS<int> L2(-2, nullptr);
     List PtrL1 = &L1, PtrL2 = &L2;
-    //插入
+    // 插入
     NodeS<int> I1(1, nullptr);
     NodeS<int> I2(2, nullptr);
     NodeS<double> D1(2020.11, nullptr);
@@ -112,27 +112,27 @@ int main()
 
     // cout << endl;
 
-    //合并
+    // 合并
     PtrL1 = PtrL1->Merge(PtrL2);
-    //输出
+    // 输出
     cout << "合并后的结果：" << endl;
     cout << "PtrL1中元素：" << endl;
     PtrL1->Output();
-    // PtrL2->Output(); //这里用PtrL2输出结果相同
+    // PtrL2->Output(); // 这里用PtrL2输出结果相同
     cout << endl;
 
-    //排序
+    // 排序
     PtrL1 = PtrL1->sortByType();
-    //输出
+    // 输出
     cout << "排序后的结果：" << endl;
     cout << "PtrL1中元素：" << endl;
     PtrL1->Output();
 
     cout << endl;
 
-    //销毁
+    // 销毁
     PtrL1 = PtrL1->Destroy();
-    //输出
+    // 输出
     cout << "销毁后的结果：" << endl;
     cout << "PtrL1中元素：" << endl;
     PtrL1->Output();
@@ -215,7 +215,7 @@ List NodeS<T>::DeleteKth(int K)
     {
         p = this;
         p = p->Next;
-        // delete p; //不能在一个对象内部把自己删除
+        // delete p; // 不能在一个对象内部把自己删除
         return p;
     }
     l = FindKth(K - 1);
@@ -223,7 +223,7 @@ List NodeS<T>::DeleteKth(int K)
     {
         p = l->Next;
         l->Next = p->Next;
-        // delete p; //跳过待删除而后续还要用到的对象
+        // delete p; // 跳过待删除而后续还要用到的对象
         return this;
     }
     else
