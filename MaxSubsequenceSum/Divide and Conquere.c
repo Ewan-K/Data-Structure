@@ -24,7 +24,7 @@ int MaxSubSum(int A[], int left, int right)
 	int left, right;
 
 	center = (left + right) / 2;
-	/*Base case*/
+	/* Base case */
 	if (left == right)
 		if (A[left] > 0)
 			return A[left];

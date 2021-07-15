@@ -11,8 +11,8 @@ struct LNode
 
 List MakeEmpty();
 int Find(List PtrL, int X);
-void Insert(int X, List PtrL, int Position); //在第Position个位置插入
-void Delete(List PtrL, int Position);		 //第Position个位置删除
+void Insert(int X, List PtrL, int Position); // 在第Position个位置插入
+void Delete(List PtrL, int Position);		 // 第Position个位置删除
 
 int main()
 {
@@ -20,7 +20,7 @@ int main()
 	List PtrL;
 	PtrL = MakeEmpty();
 
-	//建表
+	// 建表
 	printf("您想要输入几个元素？\n");
 	scanf("%d", &N);
 	for (i = 1; i <= N; i++)
@@ -31,7 +31,7 @@ int main()
 	}
 	PtrL->Last = N - 1;
 
-	//查找
+	// 查找
 	printf("您想要查找哪个元素？\n");
 	scanf("%d", &num);
 	if (Find(PtrL, num) < 0)
@@ -39,17 +39,17 @@ int main()
 	else
 		printf("这个元素在下标为%d的位置上\n", Find(PtrL, num));
 
-	//插入
+	// 插入
 	printf("您想要将什么插入到第几个位置上？\n");
 	scanf("%d %d", &num, &Position);
 	Insert(num, PtrL, Position);
 
-	//删除
+	// 删除
 	printf("您想要删除第几个元素？\n");
 	scanf("%d", &Position);
 	Delete(PtrL, Position);
 
-	//输出
+	// 输出
 	printf("当前表中所剩元素为：\n");
 	for (i = 0; i <= PtrL->Last; i++)
 		printf("%d	", PtrL->Data[i]);

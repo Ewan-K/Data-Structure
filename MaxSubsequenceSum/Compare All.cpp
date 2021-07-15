@@ -1,9 +1,8 @@
 #include <stdio.h>
-#include <stdlib.h> //not used
-//Compare sum of all subsequence
+// Compare sum of all subsequence
 
-int origf(int N, int A[]);
-int betterf(int N, int A[]);
+int origF(int N, int A[]);
+int betterF(int N, int A[]);
 
 int main()
 {
@@ -16,20 +15,20 @@ int main()
 	int A[N];
 	for (i = 0; i < N; i++)
 		scanf("%d", &A[i]);
-	printf("请选择使用哪种算法？1 original，2 better");
+	printf("Please choose an algorithms: 1 original, 2 better");
 	scanf("%d", &sw);
 
 	switch (sw)
 	{
 	case 1:
-		MaxSum = origf(N, A);
+		MaxSum = origF(N, A);
 	case 2:
-		MaxSum = betterf(N, A);
+		MaxSum = betterF(N, A);
 	}
 	printf("%d", MaxSum);
 }
 
-int origf(int N, int A[])
+int origF(int N, int A[])
 {
 	int ThisSum, MaxSum = 0;
 	int i, j, k;
@@ -49,7 +48,7 @@ int origf(int N, int A[])
 	return MaxSum;
 }
 
-int betterf(int N, int A[])
+int betterF(int N, int A[])
 {
 	int ThisSum, MaxSum = 0;
 	int i, j;
