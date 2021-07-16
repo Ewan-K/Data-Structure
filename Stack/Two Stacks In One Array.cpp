@@ -19,22 +19,22 @@ int Pop(Stack S, int Tag);
 int main()
 {
     int num1, num2;
-    //建栈
+    // 建栈
     Stack S = createEmpty();
-    //压栈
+    // 压栈
     Push(1, S, 1);
     Push(2, S, 2);
-    //输出
+    // 输出
     Output(S);
 
     printf("\n");
 
-    //出栈
+    // 出栈
     num1 = Pop(S, 1);
     printf("%d\n", num1);
     num2 = Pop(S, 2);
     printf("%d\n", num2);
-    //输出
+    // 输出
     Output(S);
 
     getchar();

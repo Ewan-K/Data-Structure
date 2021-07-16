@@ -19,20 +19,20 @@ int Pop(Stack PtrS);
 int main()
 {
     int test;
-    //建立堆栈
+    // 建立堆栈
     Stack S = createStack();
-    //压栈
+    // 压栈
     Push(1, S);
     Push(2, S);
-    //输出
+    // 输出
     Output(S);
 
     printf("\n");
 
-    //出栈
+    // 出栈
     test = Pop(S);
     printf("test = %d\n", test);
-    //输出
+    // 输出
     Output(S);
     getchar();
     return 0;

@@ -15,7 +15,7 @@ typedef struct ENode *Edge;
 struct ENode
 {
     Vertex V1, V2;
-    //int Weight;
+    // int Weight;
 };
 
 MGraph createGraph(int vertexNum);
@@ -45,9 +45,9 @@ MGraph createGraph(int vertexNum)
 void insertEdge(MGraph Graph, Edge E)
 {
     Graph->G[E->V1][E->V2] = 1;
-    //有权图加上权重
-    //Graph->G[E->V1][E->V2] = E->Weight;
-    //无向图加另一个方向的边
+    // 有权图加上权重
+    // Graph->G[E->V1][E->V2] = E->Weight;
+    // 无向图加另一个方向的边
     Graph->G[E->V2][E->V1] = 1;
 }
 

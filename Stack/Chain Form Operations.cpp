@@ -18,22 +18,22 @@ int Pop(Stack);
 int main()
 {
     int num1, num2;
-    //建栈
+    // 建栈
     Stack S = createStack();
-    //压栈
+    // 压栈
     Push(1, S);
     Push(2, S);
-    //输出
+    // 输出
     Output(S);
 
     printf("\n");
 
-    //出栈
+    // 出栈
     num1 = Pop(S);
     printf("%d\n", num1);
     num2 = Pop(S);
     printf("%d\n", num2);
-    //输出
+    // 输出
     Output(S);
 
     getchar();

@@ -24,15 +24,15 @@ int main()
 {
     int num1;
     Queue Q = createQ();
-    //进队
+    // 进队
     Enqueue(1, Q);
     Enqueue(2, Q);
     Enqueue(3, Q);
     Output(Q);
 
     printf("\n");
-    
-    //出队
+
+    // 出队
     num1 = Dequeue(Q);
     printf("%d\n", num1);
     Output(Q);
@@ -68,7 +68,7 @@ void Enqueue(int X, Queue Q)
     Node *PtrQ = (Node *)malloc(sizeof(Node));
     PtrQ->Data = X;
     PtrQ->Next = NULL;
-    if (Q->front == NULL) //若队列为空，需要改变front，而如果不为空则只需改变rear
+    if (Q->front == NULL) // 若队列为空，需要改变front，而如果不为空则只需改变rear
         Q->front = Q->rear = PtrQ;
     else
     {
@@ -88,7 +88,7 @@ int Dequeue(Queue Q)
         return ERROR;
     }
     PtrQ = Q->front;
-    if (Q->front == Q->rear) //若队列仅有一个元素，出队后需要改变rear，而如果有更多元素则不需改变rear
+    if (Q->front == Q->rear) // 若队列仅有一个元素，出队后需要改变rear，而如果有更多元素则不需改变rear
         Q->front = Q->rear = NULL;
     else
         Q->front = Q->front->Next;
