@@ -71,7 +71,7 @@ MGraph buildGraph()
             insertEdge(Graph, E);
         }
     }
-    //如果点有数据的话还要赋值
+    // 如果点有数据的话还要赋值
 
     return Graph;
 }

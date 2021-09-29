@@ -1,3 +1,4 @@
+// 用二维数组表示矩阵可能太过浪费，这里使用十字链表（一种多重链表，多重链表是一种广义表，广义表是线性表的推广）
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -11,7 +12,8 @@ struct Term
 struct GNode
 {
     int tag;
-    union {
+    union
+    {
         Term term;
         Matrix next;
     } region;

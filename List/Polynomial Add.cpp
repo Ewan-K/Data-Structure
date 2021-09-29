@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// 多项式加法可以采用结构数组（存储系数和指数）也可以采用指针，显然指针更便于维护顺序
+// 多项式加法可以采用结构数组（存储系数和指数）也可以采用链表，显然链表更便于维护顺序
 
 typedef struct PNode *Poly;
 struct PNode

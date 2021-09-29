@@ -14,20 +14,20 @@ struct GNode
 typedef struct arrayNode
 {
     PtrToAdjLNode FirstEdge;
-    //int Data;
+    // int Data;
 } AdjList[VertexNumMax];
 typedef struct AdjLNode *PtrToAdjLNode;
 struct AdjLNode
 {
     Vertex Index;
     PtrToAdjLNode Next;
-    //int Weight;
+    // int Weight;
 };
 typedef struct ENode *Edge;
 struct ENode
 {
     int V1, V2;
-    //int Weight;
+    // int Weight;
 };
 
 LGraph createGraph(int vertexNum);
@@ -60,7 +60,7 @@ void insertEdge(LGraph Graph, Edge E)
     newNode->Next = Graph->G[E->V1].FirstEdge;
     Graph->G[E->V1].FirstEdge = newNode;
 
-    //无向图还要插入<V2, V1>
+    // 无向图还要插入<V2, V1>
     newNode = (PtrToAdjLNode)malloc(sizeof(AdjLNode));
     newNode->Index = E->V1;
     newNode->Next = Graph->G[E->V2].FirstEdge;
@@ -87,7 +87,7 @@ LGraph buildGraph()
             insertEdge(Graph, E);
         }
     }
-    //如果点有数据的话还要赋值
+    // 如果点有数据的话还要赋值
 
     return Graph;
 }
