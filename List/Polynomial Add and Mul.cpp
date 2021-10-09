@@ -15,6 +15,7 @@ Poly P1F = P1; // 由于采用Attach函数插入新节点，所以链表有头�
 Poly P2F = P2;
 
 Poly PolyAdd(Poly P1, Poly P2);
+Poly PolyMul(Poly P1, Poly P2);
 void Attach(int coe, int expo, Poly *pRear); // 传rear的地址以避免传rear时无法返回有效结果
 int Compare(int e1, int e2);
 
@@ -23,7 +24,7 @@ int main()
     int num1, num2;
     int i;
     int coe, expo;
-    Poly res, p;
+    Poly res1, res2, p;
 
     printf("请输入P1的项数：");
     scanf("%d", &num1);
@@ -44,9 +45,17 @@ int main()
         Attach(coe, expo, &P2);
     }
 
-    res = PolyAdd(P1F->next, P2F->next);
-    p = res;
+    res1 = PolyAdd(P1F->next, P2F->next);
+    p = res1;
     printf("P1、P2和的结果为：\n");
+    while (p)
+    {
+        printf("%d %d\n", p->coe, p->expo);
+        p = p->next;
+    }
+    res2 = PolyMul(P1F->next, P2F->next);
+    p = res2;
+    printf("P1、P2积的结果为：\n");
     while (p)
     {
         printf("%d %d\n", p->coe, p->expo);
