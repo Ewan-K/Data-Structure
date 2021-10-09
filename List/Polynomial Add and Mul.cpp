@@ -102,6 +102,66 @@ Poly PolyAdd(Poly P1, Poly P2)
     free(temp);
     return front;
 }
+Poly PolyMul(Poly P1, Poly P2)
+{
+    Poly t1, t2, P, rear, t;
+    int e, c;
+    if (!P1 || !P2)
+        return NULL;
+
+    t1 = P1;
+    t2 = P2;
+    P = (Poly)malloc(sizeof(PNode));
+    P->next = NULL;
+    rear = P;
+    while (t2)
+    {
+        Attach(t1->coe * t2->coe, t1->expo + t2->expo, &rear);
+        t2 = t2->next;
+    }
+    t1 = t1->next;
+    while (t1)
+    {
+        t2 = P2;
+        rear = P;
+        while (t2)
+        {
+            e = t1->expo + t2->expo;
+            c = t1->coe * t2->coe;
+            // 将新的节点按照降序插入链表中
+            while (rear->next && rear->next->expo > e)
+                rear = rear->next;
+            if (rear->next && rear->next->expo == e) // 合并
+            {
+                if (rear->next->coe + c)
+                {
+                    rear->next->coe += c;
+                }
+                else
+                {
+                    t = rear->next;
+                    rear->next = t->next;
+                    free(t);
+                }
+            }
+            else // 插入
+            {
+                t = (Poly)malloc(sizeof(PNode));
+                t->coe = c;
+                t->expo = e;
+                t->next = rear->next;
+                rear->next = t;
+                rear = rear->next;
+            }
+            t2 = t2->next;
+        }
+        t1 = t1->next;
+    }
+    t2 = P;
+    P = P->next;
+    free(t2);
+    return P;
+}
 void Attach(int c, int e, Poly *pRear)
 {
     Poly P;
