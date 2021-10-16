@@ -34,6 +34,8 @@ int main()
 
 	BST = Delete(1, BST);
 	Preorder(BST);
+	printf("\n");
+	printf("%d\n", FindMax(BST)->Data);
 	getchar();
 	return 0;
 }
