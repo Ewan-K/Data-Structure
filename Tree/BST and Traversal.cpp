@@ -1,9 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct TreeNode;
-typedef TreeNode *BinTree;
+typedef struct TreeNode *BinTree;
 typedef BinTree Position;
+struct TreeNode
+{
+	int Data;
+	BinTree Left;  // 左孩子
+	BinTree Right; // 右孩子
+};
+
 Position Find(int X, BinTree BST);
 Position IterationFind(int X, BinTree BST);
 Position FindMax(BinTree BST);
@@ -14,28 +20,25 @@ void Preorder(BinTree BT);
 void Inorder(BinTree BT);
 void Postorder(BinTree BT);
 
-struct TreeNode
-{
-	int Data;
-	BinTree Left;
-	BinTree Right;
-};
-
 int main()
 {
 	BinTree BST = NULL;
+	BST = Insert(3, BST);
+	BST = Insert(1, BST);
 	BST = Insert(0, BST);
-	BST = Insert(1, BST); // 目前仍不能显示正确结果
-	// BST = Insert(2, BST);
-	// BST = Insert(3, BST);
-	// BST = Insert(4, BST);
-	// BST = Insert(5, BST);
+	BST = Insert(2, BST);
+	BST = Insert(4, BST);
+	BST = Insert(5, BST);
+	Preorder(BST);
+	printf("\n");
+
+	BST = Delete(1, BST);
 	Preorder(BST);
 	getchar();
 	return 0;
 }
 
-// Recursion
+// RecursionFind
 Position Find(int X, BinTree BST)
 {
 	if (!BST)
@@ -71,6 +74,22 @@ Position FindMax(BinTree BST)
 		return BST;
 	else
 		return FindMax(BST->Right);
+	/*
+	while (BST)
+	{
+		if (!BST->Right)
+			return BST;
+		else
+			BST = BST->Right;
+	}
+	return NULL;
+	*/
+	/*
+	if (BST)
+		while (BST->Right)
+			BST = BST->Right;
+	return BST;
+	*/
 }
 
 // Iteration
@@ -102,8 +121,9 @@ BinTree Insert(int X, BinTree BST)
 	}
 	else if (X < BST->Data)
 		BST->Left = Insert(X, BST->Left);
-	else if (BST->Data > X)
+	else if (X > BST->Data)
 		BST->Right = Insert(X, BST->Right);
+	// else
 	return BST;
 }
 
