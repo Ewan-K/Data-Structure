@@ -1,3 +1,4 @@
+// 十字链表？类似List中的矩阵？
 #include <stdio.h>
 #include <stdlib.h>
 

@@ -1,3 +1,4 @@
+// 邻接矩阵
 #include <stdio.h>
 #include <stdlib.h>
 
