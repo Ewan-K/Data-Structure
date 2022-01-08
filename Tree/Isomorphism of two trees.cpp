@@ -27,7 +27,7 @@ E 2 -
 #define Tree int
 #define Null -1
 
-// 采用静态链表存储二叉树
+// 采用静态链表（一种体现链表思想的数组）存储二叉树
 struct TreeNode
 {
     ElementType Element;
