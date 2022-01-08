@@ -1,4 +1,4 @@
-// 配合第四讲 树（中）习题选讲的动画理解
+// 配合DS MOOC第四讲 树（中）习题选讲的动画理解
 #include <stdio.h>
 #include <stdlib.h>
 
