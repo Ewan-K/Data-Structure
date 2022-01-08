@@ -41,9 +41,11 @@ int Isomorphic(Tree R1, Tree R2);
 int main()
 {
     Tree R1, R2;
+    int flag = 0;
     R1 = BuildTree(T1);
     R2 = BuildTree(T2);
-    if (Isomorphic(R1, R2))
+    flag = Isomorphic(R1, R2);
+    if (flag)
         printf("Yes\n");
     else
         printf("No\n");
@@ -55,9 +57,9 @@ Tree BuildTree(struct TreeNode T[])
 {
     int N;
     ElementType cl, cr;
-    int Root;
+    int Root = Null;
     scanf("%d\n", &N);
-    int check[N];
+    int check[MaxTree];
     if (N)
     {
         for (int i = 0; i < N; i++)
@@ -75,7 +77,7 @@ Tree BuildTree(struct TreeNode T[])
                 T[i].Left = Null;
             if (cr != '-')
             {
-                T[i].Right = cl - '0';
+                T[i].Right = cr - '0';
                 check[T[i].Right] = 1;
             }
             else
@@ -120,5 +122,8 @@ int Isomorphic(Tree R1, Tree R2)
         return (Isomorphic(T1[R1].Left, T2[R2].Left) && Isomorphic(T1[R1].Right, T2[R2].Right));
     }
     else // need to swap
+    {
+        // printf("need to swap\n");
         return (Isomorphic(T1[R1].Left, T2[R2].Right) && Isomorphic(T1[R1].Right, T2[R2].Left));
+    }
 }
