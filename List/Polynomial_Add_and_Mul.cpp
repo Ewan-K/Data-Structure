@@ -26,18 +26,18 @@ int main()
     int coe, expo;
     Poly res1, res2, p;
 
-    printf("请输入P1的项数：");
+    printf("P1-Please input the number of items:");
     scanf("%d", &num1);
-    printf("请输入P2的项数：");
+    printf("P2-Please input the number of items:");
     scanf("%d", &num2);
-    printf("请输入P1所有项的值\n：");
+    printf("P1-Please input the value of items:\n：");
     for (i = 0; i < num1; i++)
     {
         scanf("%d", &coe);
         scanf("%d", &expo);
         Attach(coe, expo, &P1);
     }
-    printf("请输入P2所有项的值\n：");
+    printf("P2-Please input the value of items:\n：");
     for (i = 0; i < num2; i++)
     {
         scanf("%d", &coe);
@@ -47,7 +47,7 @@ int main()
 
     res1 = PolyAdd(P1F->next, P2F->next);
     p = res1;
-    printf("P1、P2和的结果为：\n");
+    printf("P1 + P2:\n");
     while (p)
     {
         printf("%d %d\n", p->coe, p->expo);
@@ -55,7 +55,7 @@ int main()
     }
     res2 = PolyMul(P1F->next, P2F->next);
     p = res2;
-    printf("P1、P2积的结果为：\n");
+    printf("P1 * P2:\n");
     while (p)
     {
         printf("%d %d\n", p->coe, p->expo);

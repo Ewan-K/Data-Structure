@@ -1,28 +1,28 @@
-// 十字链表？类似List中的矩阵？
+// 邻接表
 #include <stdio.h>
 #include <stdlib.h>
 
 #define VertexNumMax 50
 
 typedef int Vertex;
-typedef struct GNode *LGraph;
-struct GNode
+typedef struct AdjLNode *PtrToAdjLNode;
+struct AdjLNode
 {
-    int Nv;
-    int Ne;
-    AdjList G;
+    Vertex AdjV;
+    PtrToAdjLNode Next;
+    // int Weight;
 };
 typedef struct arrayNode
 {
     PtrToAdjLNode FirstEdge;
     // int Data;
 } AdjList[VertexNumMax];
-typedef struct AdjLNode *PtrToAdjLNode;
-struct AdjLNode
+typedef struct GNode *LGraph;
+struct GNode
 {
-    Vertex Index;
-    PtrToAdjLNode Next;
-    // int Weight;
+    int Nv;
+    int Ne;
+    AdjList G;
 };
 typedef struct ENode *Edge;
 struct ENode
@@ -57,13 +57,13 @@ void insertEdge(LGraph Graph, Edge E)
 {
     PtrToAdjLNode newNode;
     newNode = (PtrToAdjLNode)malloc(sizeof(AdjLNode));
-    newNode->Index = E->V2;
+    newNode->AdjV = E->V2;
     newNode->Next = Graph->G[E->V1].FirstEdge;
     Graph->G[E->V1].FirstEdge = newNode;
 
     // 无向图还要插入<V2, V1>
     newNode = (PtrToAdjLNode)malloc(sizeof(AdjLNode));
-    newNode->Index = E->V1;
+    newNode->AdjV = E->V1;
     newNode->Next = Graph->G[E->V2].FirstEdge;
     Graph->G[E->V2].FirstEdge = newNode;
 }
@@ -73,10 +73,10 @@ LGraph buildGraph()
     int Nv, i;
     Edge E;
     LGraph Graph;
-    printf("请输入点的数量：\n");
+    printf("Please input the numbers of vertex:\n");
     scanf("%d", &Nv);
     Graph = createGraph(Nv);
-    printf("请输入边的数量：\n");
+    printf("Please input the numbers of edge:\n");
     scanf("%d", &(Graph->Ne));
     if (Graph->Ne)
     {
