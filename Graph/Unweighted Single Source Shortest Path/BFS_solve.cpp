@@ -73,12 +73,12 @@ int main()
 {
     int s, t;
     buildGraph();
-    for (int i = 0; i < Nv; i++)
-    {
-        for (int j = 0; j < Nv; j++)
-            cout << G[i][j];
-        cout << endl;
-    }
+    // for (int i = 0; i < Nv; i++)
+    // {
+    //     for (int j = 0; j < Nv; j++)
+    //         cout << G[i][j];
+    //     cout << endl;
+    // }
     cout << "Please input the index of the source node: " << endl;
     cin >> s;
     solve(s);
@@ -86,6 +86,11 @@ int main()
     cin >> t;
     cout << "The cost of the shortest path between them is: " << dist[t] << endl;
     cout << "The path are(need to be reversed): " << endl;
+    for (int i = 0; i < Nv; i++)
+        cout << dist[i] << ' ';
+    for (int i = 0; i < Nv; i++)
+        cout << path[i] << ' ';
+
     int k = t;
     while (k != s)
     {
