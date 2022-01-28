@@ -20,7 +20,6 @@ void buildGraph()
     {
         cin >> v1 >> v2;
         G[v1][v2] = 1;
-        G[v2][v1] = 1;
     }
 }
 
