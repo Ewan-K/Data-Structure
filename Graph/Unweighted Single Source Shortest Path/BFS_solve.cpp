@@ -42,19 +42,21 @@ void buildGraph()
 void solve(int s)
 {
     queue<int> Q;
+    // 入栈source node
     Q.push(s);
     // 初始化dist和path数组
     for (int i = 0; i < Nv; i++)
         dist[i] = path[i] = -1;
     dist[s] = 0;
-    // 入栈source node
     while (!Q.empty())
     {
+        queue<int> Q_temp;
         int v = Q.front();
         Q.pop();
-        queue<int> Q_temp;
-        for (int i = 0; G[v][i] != 0 && i != s; i++)
-            Q_temp.push(i);
+        for (int i = 0; i < Nv; i++)
+            if (G[v][i] == 1)
+                Q_temp.push(i);
+
         while (!Q_temp.empty())
         {
             int adj = Q_temp.front();
@@ -85,19 +87,19 @@ int main()
     cout << "Please input the index of the target node: " << endl;
     cin >> t;
     cout << "The cost of the shortest path between them is: " << dist[t] << endl;
-    cout << "The path are(need to be reversed): " << endl;
+    cout << "The path are(from target to source): " << endl;
     for (int i = 0; i < Nv; i++)
         cout << dist[i] << ' ';
     cout << endl;
     for (int i = 0; i < Nv; i++)
         cout << path[i] << ' ';
-
+    cout << endl;
     int k = t;
     while (k != s)
     {
         cout << k << ' ';
         k = path[k];
     }
-
+    cout << k;
     return 0;
 }
