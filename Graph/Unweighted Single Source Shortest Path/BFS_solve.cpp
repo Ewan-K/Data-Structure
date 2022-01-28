@@ -1,4 +1,20 @@
-// BFS求解无权图上的单源最短路问题
+// BFS求解无权图上的单源最短路问题（本例为有向无权图）
+/*
+7
+12
+0 1
+0 3
+1 3
+1 4
+2 0
+2 5
+3 2
+3 4
+3 5
+3 6
+4 6
+6 5
+*/
 #include <queue>
 #include <iostream>
 
@@ -10,7 +26,7 @@ int dist[MAXN], path[MAXN];
 
 void buildGraph()
 {
-    int v1, v2, w;
+    int v1, v2;
     cin >> Nv; // 输入点的个数
     for (int i = 0; i < Nv; i++)
         for (int j = 0; j < Nv; j++)
@@ -30,6 +46,7 @@ void solve(int s)
     // 初始化dist和path数组
     for (int i = 0; i < Nv; i++)
         dist[i] = path[i] = -1;
+    dist[s] = 0;
     // 入栈source node
     while (!Q.empty())
     {
