@@ -88,6 +88,7 @@ int main()
     cout << "The path are(need to be reversed): " << endl;
     for (int i = 0; i < Nv; i++)
         cout << dist[i] << ' ';
+    cout << endl;
     for (int i = 0; i < Nv; i++)
         cout << path[i] << ' ';
 
