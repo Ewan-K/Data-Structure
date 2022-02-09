@@ -1,4 +1,4 @@
-// 归并
+// 归并（从小到大排序）
 #include <iostream>
 using namespace std;
 

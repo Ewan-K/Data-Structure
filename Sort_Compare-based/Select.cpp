@@ -1,4 +1,4 @@
-// 简单选择、堆
+// 简单选择、堆（从小到大排序）
 #include <iostream>
 using namespace std;
 

@@ -1,4 +1,4 @@
-// 冒泡、快排
+// 冒泡、快排（从小到大排序）
 #include <iostream>
 using namespace std;
 

@@ -1,4 +1,4 @@
-// 直接插入、希尔
+// 直接插入、希尔（从小到大排序）
 #include <iostream>
 using namespace std;
 
@@ -9,6 +9,14 @@ int N;
 
 void direct(int num[], int N)
 {
+    for (int P = 1; P < N; P++)
+    {
+        int tmp = num[P];
+        int i = 0;
+        for (i = P; i > 0 && tmp < num[i - 1]; i--)
+            num[i] = num[i - 1];
+        num[i] = tmp;
+    }
 }
 
 int main()
