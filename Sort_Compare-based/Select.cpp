@@ -1,4 +1,4 @@
-// 简单选择、堆（从小到大排序）
+// 简单选择、堆（从小到大排序），参考Tree/Heap.cpp
 #include <iostream>
 using namespace std;
 
