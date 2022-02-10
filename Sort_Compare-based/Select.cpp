@@ -7,11 +7,12 @@ using namespace std;
 int num[MAXN];
 int N;
 
-void direct(int num[], int N)
+void direct(int num[], int N) // 可以交换不相邻的两个元素，但是受到ScanForMin部分的制约，所以堆排序就此改进
 {
     for (int i = 0; i < N - 1; i++)
     {
         int minPos = i;
+        // ScanForMin
         for (int j = i + 1; j < N; j++)
             if (num[j] < num[minPos])
                 minPos = j;
