@@ -1,4 +1,4 @@
-// 将一系列给定数字插入到一个初始为空的小顶堆H。随后对任意给定的下标i，打印从H[i]到根节点的路劲
+// 将一系列给定数字插入到一个初始为空的小顶堆H。随后对任意给定的下标i，打印H[i]到根节点的路径
 #include <stdio.h>
 
 #define MAXN 1001
@@ -15,15 +15,15 @@ void Create()
 void Insert(int X)
 {
     int i;
-    for (i = ++size; H[i/2] > X; i/=2)
-        H[i] = H[i/2];
+    for (i = ++size; H[i / 2] > X; i /= 2)
+        H[i] = H[i / 2];
     H[i] = X;
 }
 
 int main()
 {
     int n, m, x, i, j;
-    scanf("%d %d", &n, &m); // 插入多少个数，查询多少个数
+    scanf("%d %d", &n, &m); // 插入多少个数，查询多少个数到根节点的路径
     Create();
     for (i = 0; i < n; i++)
     {
@@ -34,7 +34,7 @@ int main()
     {
         scanf("%d", &j);
         printf("%d ", H[j]);
-        while(j > 1)
+        while (j > 1)
         {
             j /= 2;
             printf("%d ", H[j]);
