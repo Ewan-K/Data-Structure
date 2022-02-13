@@ -4,9 +4,6 @@ using namespace std;
 
 #define MAXN 100
 
-int num[MAXN];
-int N;
-
 void bubble(int num[], int N) // 最大的优势是可以用于链表排序，同样每次只操作相邻两个元素
 {
     for (int i = N - 1; i > 0; i--)
@@ -27,6 +24,8 @@ void bubble(int num[], int N) // 最大的优势是可以用于链表排序，�
 
 int main()
 {
+    int num[MAXN];
+    int N;
     cout << "Please input how many numbers?" << endl;
     cin >> N;
     cout << "Please input the numbers:" << endl;

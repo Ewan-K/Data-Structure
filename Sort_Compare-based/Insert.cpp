@@ -4,9 +4,6 @@ using namespace std;
 
 #define MAXN 100
 
-int num[MAXN];
-int N;
-
 void direct(int num[], int N) // 每次只操作相邻两个元素
 {
     for (int P = 1; P < N; P++)
@@ -36,6 +33,8 @@ void shell(int num[], int N)
 
 int main()
 {
+    int num[MAXN];
+    int N;
     cout << "Please input how many numbers?" << endl;
     cin >> N;
     cout << "Please input the numbers:" << endl;
