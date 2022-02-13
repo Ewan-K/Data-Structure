@@ -56,13 +56,7 @@ void Heap(int num[], int N) // 建一个最大堆，不断将最大的元素放�
     percDown(num, N);
     for (int i = N - 1; i > 0; i--)
     {
-        // for (int j = 0; j < N; j++)
-        //     cout << num[j] << ' ';
-        // cout << endl;
         swap(num[0], num[i]);
-        // for (int j = 0; j < N; j++)
-        //     cout << num[j] << ' ';
-        // cout << endl;
         percDown(num, i);
     }
 }
