@@ -22,7 +22,7 @@ void bubble(int num[], int N) // 最大的优势是可以用于链表排序，�
     }
 }
 
-void QuickSort(int num[], int N) // 基于分治法思想，如果数据规模过小则最好换其他排序算法
+void QuickSort(int num[], int N) // 基于分治法思想，如果数据规模过小则最好换其他排序算法以避免递归
 {
 }
 

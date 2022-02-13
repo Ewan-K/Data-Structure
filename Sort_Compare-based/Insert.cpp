@@ -4,7 +4,7 @@ using namespace std;
 
 #define MAXN 100
 
-void direct(int num[], int N) // 每次只操作相邻两个元素
+void direct(int num[], int N) // 把其他元素往后移动时每次只操作相邻两个元素
 {
     for (int P = 1; P < N; P++)
     {
