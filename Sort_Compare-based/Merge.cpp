@@ -4,7 +4,7 @@ using namespace std;
 
 #define MAXN 100
 
-void MergeSort(int num[], int N)
+void MergeSort(int num[], int N) // 基于分治法思想
 {
 }
 
