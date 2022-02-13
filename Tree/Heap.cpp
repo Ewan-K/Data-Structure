@@ -2,14 +2,14 @@
 #include <stdio.h>
 
 #define MAXN 1001
-#define MINH -10001
+#define MINH -1001
 
 int H[MAXN], size;
 
 void Create()
 {
-    size = 0;
-    H[0] = MINH;
+    size = 0;    // 当前最后一个元素的下标
+    H[0] = MINH; // 哨兵
 }
 
 void Insert(int X)
