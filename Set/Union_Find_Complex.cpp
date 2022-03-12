@@ -2,7 +2,7 @@
 using namespace std;
 
 #define MAXSIZE 100
-
+// 用一个SetType数组表示所有元素
 typedef int ElementType;
 typedef struct
 {

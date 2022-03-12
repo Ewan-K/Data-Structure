@@ -7,7 +7,7 @@ typedef int ElementType;
 typedef int SetName;                  // 用下标表示集合的名称
 typedef ElementType SetType[MAXSIZE]; // 这个写法很不好理解
 
-SetName Find(SetType S, ElementType X)
+SetName Find(SetType S, ElementType X) // 因为下标就是Data，这里可以把X当做下标用
 {
     for (; S[X] >= 0; X = S[X]) // 找出X在哪个集合
         ;
