@@ -65,7 +65,9 @@ void solve(int s)
         }
         if (V == -1)
             break;
+        // dist[V]确定了，V被收录
         collected[V] = 1;
+        // 更新V周边的未被收录的点
         queue<int> Q_temp;
         for (int i = 0; i < Nv; i++)
             if (G[V][i] != 0 && collected[i] == 0)
