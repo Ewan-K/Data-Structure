@@ -55,7 +55,7 @@ void solve(int s)
         Q.pop();
         for (int i = 0; i < Nv; i++)
             if (G[v][i] == 1)
-                Q_temp.push(i);
+                Q_temp.push(i); // 其中可能有重复的i
 
         while (!Q_temp.empty())
         {
