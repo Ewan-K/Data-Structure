@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stack>
 // 二叉树的DFS包括先序遍历、中序遍历、后序遍历，BFS是层序遍历
 typedef struct TreeNode *BinTree;
 typedef BinTree Position;
@@ -17,6 +18,7 @@ Position FindMin(BinTree BST);
 Position Insert(int X, BinTree BST);
 Position Delete(int X, BinTree);
 void Preorder(BinTree BT);
+void Preorder_in_Stack(BinTree BT);
 void Inorder(BinTree BT);
 void Postorder(BinTree BT);
 
@@ -30,6 +32,7 @@ int main()
 	BST = Insert(4, BST);
 	BST = Insert(5, BST);
 	Preorder(BST);
+	Preorder_in_Stack(BST);
 	printf("\n");
 
 	BST = Delete(1, BST);
@@ -166,6 +169,24 @@ void Preorder(BinTree BT)
 		Preorder(BT->Right);
 	}
 }
+
+void Preorder_in_Stack(BinTree BT)
+{
+	std::stack<BinTree> s;
+	s.push(BT);
+	while (!s.empty())
+	{
+		BinTree tmp = s.top();
+		s.pop();
+		if (tmp)
+		{
+			printf("%d", tmp->Data);
+			s.push(tmp->Right);
+			s.push(tmp->Left);
+		}
+	}
+}
+
 void Inorder(BinTree BT)
 {
 	if (BT)
