@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+// 二叉树的DFS包括先序遍历、中序遍历、后序遍历，BFS是层序遍历
 typedef struct TreeNode *BinTree;
 typedef BinTree Position;
 struct TreeNode
