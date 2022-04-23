@@ -21,6 +21,7 @@ void Preorder(BinTree BT);
 void Preorder_in_Stack(BinTree BT);
 void Inorder(BinTree BT);
 void Postorder(BinTree BT);
+void Postorder_in_Stack(BinTree BT);
 
 int main()
 {
@@ -33,6 +34,9 @@ int main()
 	BST = Insert(5, BST);
 	Preorder(BST);
 	Preorder_in_Stack(BST);
+	printf("\n");
+	Postorder(BST);
+	Postorder_in_Stack(BST);
 	printf("\n");
 
 	BST = Delete(1, BST);
@@ -178,7 +182,7 @@ void Preorder_in_Stack(BinTree BT)
 	{
 		BinTree tmp = s.top();
 		s.pop();
-		if (tmp)
+		if (tmp) // s这个堆栈中有可能插入nullptr，tmp判空
 		{
 			printf("%d", tmp->Data);
 			s.push(tmp->Right);
@@ -191,9 +195,9 @@ void Inorder(BinTree BT)
 {
 	if (BT)
 	{
-		Preorder(BT->Left);
+		Inorder(BT->Left);
 		printf("%d", BT->Data);
-		Preorder(BT->Right);
+		Inorder(BT->Right);
 	}
 }
 
@@ -201,8 +205,39 @@ void Postorder(BinTree BT)
 {
 	if (BT)
 	{
-		Preorder(BT->Left);
-		Preorder(BT->Right);
+		Postorder(BT->Left);
+		Postorder(BT->Right);
 		printf("%d", BT->Data);
+	}
+}
+
+void Postorder_in_Stack(BinTree BT)
+{
+	std::stack<BinTree> s1, s2;
+	BinTree cur = BT;
+	// 当右子树全都压栈后，我们需要从根节点开始重新向左遍历，这时只用一个栈无法解决数据的保存和树的向上回溯，所以我们选择采用2个栈来解决
+	// 与Preorder不同，这里先得到弹出时为后序遍历顺序的堆栈，中途不弹出任何节点
+	// 算法解释：
+	/*
+	1.从根节点开始，不断搜索右子节点，把节点压入栈1和栈2，直到右子节点为空。
+	2.弹出栈1的顶端的节点。
+	3.将节点指向弹出结点的左子树。然后再从步骤1开始，直到栈1为空并且当前节点为空。
+	*/
+	while (cur || !s1.empty()) // 和上方的Preorder不同，这里堆栈中根本不放入nullptr
+	{
+		while (cur)
+		{
+			s1.push(cur);
+			s2.push(cur);
+			cur = cur->Right;
+		}
+		cur = s1.top();
+		s1.pop();
+		cur = cur->Left;
+	}
+	while (!s2.empty())
+	{
+		printf("%d", s2.top()->Data);
+		s2.pop();
 	}
 }
